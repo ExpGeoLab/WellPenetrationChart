@@ -1,6 +1,13 @@
 # Well Penetration Chart Generator
 
+**Drilled Hole Analysis (DHA):** A systematic review of petroleum system elements (Reservoir, Seal, Trap, and Charge) within drilled wells, DHA enables a structured and detailed understanding of subsurface features and potential. The play elements can be described as either: ‘present’, ‘uncertain’, ‘void or absent’ and ‘unassessed’.
+
+**Purpose:** To identify the presence or absence of key elements and calibrate play maps. Can be used to help constrain the play maps.
+
+**Display:** Individual well evaluations are visualized as pie charts or wagon wheels, The overall results can be used to display as well penetration charts, offering interpretable visuals to identify trends and outliers across regions.
+
 This Python script generates a **Well Penetration Chart** using pie charts to visualize the presence and state of play elements (Reservoir, Seal, Charge, Trap) for wells and plays. It also exports the pie charts as PNG files and updates the input data with the file paths of the exported charts.
+![WellPenetrationChart](https://github.com/user-attachments/assets/d7996288-a296-4384-904a-e52ba76bc51a)
 
 ---
 
@@ -20,10 +27,13 @@ This Python script generates a **Well Penetration Chart** using pie charts to vi
 - **Dynamic Pie Charts**: Visualizes the state of play elements (Present, Ambiguous, Not Present, Unevaluated) using pie charts.
 - **Customizable Input**: Supports customizable column names for wells, plays, and play elements.
 - **Export Options**:
-  - Exports pie charts as **PNG files** (128x128 pixels).
+  - Exports pie charts as **PNG files** (128x128 pixels). *Enabled by default (export_pie_charts=True)*.
   - Updates the input file with the paths of the exported pie charts.
-  - Supports output in **Excel** or **CSV** format.
+  - Supports output in **Excel** or **CSV** format. *Enabled by default (export_updated_file=True)*.
 - **Flexible Configuration**: Allows customization of chart size, colors, and grid properties.
+- **QGIS Integration**: The exported pie charts and their file paths can be seamlessly integrated into QGIS. The `PieChartPath` column in the updated CSV or Excel file can be used to replace point markers with the corresponding raster images (pie charts) in QGIS, enabling dynamic visualization of well penetration data on maps.
+![Q-GIS](https://github.com/user-attachments/assets/3985e14a-c9c9-4654-af7e-a958fad9108b)
+
 
 ---
 
@@ -92,7 +102,7 @@ The input file should be an **Excel file** with the following columns (default c
 - **Charge**: State of the charge.
 - **Trap**: State of the trap.
 - **Play**: Name of the play.
-- **Age**: Age of the well (used for sorting).
+- **Age**: Age of the well (used for sorting - Mandatory).
 - **Color** (optional): Color for each play (used for visualization).
 
 ---
