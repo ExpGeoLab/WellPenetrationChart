@@ -13,7 +13,7 @@ This Python script generates a **Well Penetration Chart** using pie charts to vi
 
 ## 📋 Table of Contents
 - [Features](#-features)
-- [Q-GIS Integration](#-integrating-exported-pie-charts-into-qgis)
+- [Q-GIS Integration](#%EF%B8%8F-integrating-exported-pie-charts-into-qgis)
 - [Requirements](#-requirements)
 - [Installation](#-installation)
 - [Usage](#-usage)
