@@ -5,14 +5,14 @@ This Python script generates a **Well Penetration Chart** using pie charts to vi
 ---
 
 ## 📋 Table of Contents
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Input Data Format](#input-data-format)
-- [Output](#output)
-- [Example](#example)
-- [License](#license)
+- [Features](#-features)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Input Data Format](#-input-data-format)
+- [Output](#-output)
+- [Example](#-example)
+- [License](#-license)
 
 ---
 
