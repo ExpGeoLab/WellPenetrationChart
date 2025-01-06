@@ -222,7 +222,7 @@ To integrate the provided Excel function and VBA macro into your workbook, follo
 ---
 
 ## 📄 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for details.
+This project is licensed under the Creative Commons License. See the [LICENSE](LICENSE.txt) file for details.
 
 ---
 
