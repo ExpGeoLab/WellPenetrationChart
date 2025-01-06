@@ -1,0 +1,45 @@
+' ========================================================================================
+' Worksheet_Change Event Handler
+' 
+' Description:
+'   This VBA macro automatically changes the background color of a cell when a valid
+'   HEX color code (e.g., #FF5733) is entered into the cell. The HEX code must:
+'   - Start with a "#" symbol.
+'   - Be exactly 7 characters long (e.g., "#RRGGBB").
+' 
+' How It Works:
+'   1. The macro triggers whenever a change is made to any cell in the worksheet.
+'   2. It checks if the entered value is a valid HEX color code.
+'   3. If valid, it extracts the Red, Green, and Blue (RGB) components from the HEX code.
+'   4. It then applies the corresponding color to the cell's background.
+' 
+' Notes:
+'   - The HEX code must be in the format "#RRGGBB" (e.g., "#FF5733" for orange).
+'   - The macro temporarily disables event handling to avoid infinite loops.
+'   - If an error occurs, the macro safely exits and re-enables event handling.
+' 
+' Example:
+'   Enter "#FF5733" into a cell, and the cell's background will turn orange.
+' ========================================================================================
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    On Error GoTo bm_Safe_Exit ' Error handling to ensure events are re-enabled
+    Application.EnableEvents = False ' Disable events to prevent infinite loops
+    
+    Dim rng As Range, clr As String
+    ' Loop through each cell in the target range (cells that were changed)
+    For Each rng In Target
+        ' Check if the cell value is a valid HEX color code (7 characters starting with "#")
+        If Len(rng.Value2) = 7 And Left(rng.Value2, 1) = "#" Then
+            clr = Mid(rng.Value2, 2) ' Remove the "#" to get the 6-character HEX code
+            ' Convert HEX to RGB and apply the color to the cell's background
+            rng.Interior.Color = _
+              RGB(Application.Hex2Dec(Left(clr, 2)), _ ' Extract and convert Red component
+                  Application.Hex2Dec(Mid(clr, 3, 2)), _ ' Extract and convert Green component
+                  Application.Hex2Dec(Right(clr, 2))) ' Extract and convert Blue component
+        End If
+    Next rng
+
+bm_Safe_Exit:
+    Application.EnableEvents = True ' Re-enable events before exiting
+End Sub
