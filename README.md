@@ -104,9 +104,65 @@ The input file should be an **Excel file** with the following columns (default c
 - **Play**: Name of the play.
 - **Age**: Age of the well (used for sorting - Mandatory).
 - **Color** (optional): Color for each play (used for visualization).
+![Excel](https://github.com/user-attachments/assets/59149a1f-64b0-4f86-8217-9aa4160ee968)
+
+---
+### **How to Use the Input [Excel File](plays.xlsm)**
+
+To integrate the provided Excel function and VBA macro into your workbook, follow these steps:
 
 ---
 
+#### **1. Add the International Reference Chronostratigraphic Chart**
+- Create a sheet named `References` in your workbook.
+- Populate the sheet with the following columns:
+  - **Column C**: Stage Names (e.g., `References!$C$2:$C$104`).
+  - **Column D**: Age Values (e.g., `References!$D$2:$D$104`).
+  - **Column E**: HEX Color Codes (optional, if you want to store colors directly).
+
+---
+
+#### **2. Add the Excel Function**
+- In your main worksheet, use the following formula to get the **stage name** or **HEX color code** based on the entered age:
+  ```excel
+  =INDEX(References!$C$2:$C$104, MATCH(MIN(ABS(References!$D$2:$D$104 - G2)), ABS(References!$D$2:$D$104 - G2), 0))
+  ```
+  - Replace `G2` with the cell containing the entered age.
+  - To get the **HEX color code** instead of the stage name, replace `References!$C$2:$C$104` with the column containing the HEX codes (e.g., `References!$E$2:$E$104`).
+
+---
+
+#### **3. Add the VBA Macro**
+- Open the VBA editor (`Alt + F11`).
+- Locate the worksheet where you want the macro to run (e.g., `Sheet1`).
+- Copy and paste the provided VBA code into the worksheet's code window.
+- Save the workbook as a **Macro-Enabled Workbook** (`.xlsm`).
+
+---
+
+#### **4. Use the Combined Functionality**
+1. **Enter an Age**:
+   - In your main worksheet, enter an age value in a cell (e.g., `G2`).
+
+2. **Get the Stage Name or HEX Code**:
+   - Use the Excel function to retrieve the corresponding stage name or HEX color code.
+
+3. **Apply the HEX Code**:
+   - If you retrieve the HEX code, enter it into another cell (e.g., `#FF5733`).
+   - The VBA macro will automatically apply the corresponding color to the cell's background.
+
+---
+
+### **Example Workflow**
+1. **Input Age**: Enter `65` in cell `G2`.
+2. **Get Stage Name**:
+   - Use the formula to get the stage name (e.g., `Paleocene`).
+3. **Get HEX Code**:
+   - Use the formula to get the HEX code (e.g., `#A3FF99`).
+4. **Apply Color**:
+   - Enter the HEX code into a cell, and the VBA macro will apply the color.
+
+---
 ## 📤 Output
 1. **Pie Charts**:
    - Exported as PNG files (128x128 pixels) to the specified `export_dir`.
