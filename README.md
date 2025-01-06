@@ -13,6 +13,7 @@ This Python script generates a **Well Penetration Chart** using pie charts to vi
 
 ## 📋 Table of Contents
 - [Features](#-features)
+- [Q-GIS Integration](-integrating-exported-pie-charts-into-qgis)
 - [Requirements](#-requirements)
 - [Installation](#-installation)
 - [Usage](#-usage)
@@ -33,6 +34,33 @@ This Python script generates a **Well Penetration Chart** using pie charts to vi
 - **Flexible Configuration**: Allows customization of chart size, colors, and grid properties.
 - **QGIS Integration**: The exported pie charts and their file paths can be seamlessly integrated into QGIS. The `PieChartPath` column in the updated CSV or Excel file can be used to replace point markers with the corresponding raster images (pie charts) in QGIS, enabling dynamic visualization of well penetration data on maps.
 ![Q-GIS](https://github.com/user-attachments/assets/3985e14a-c9c9-4654-af7e-a958fad9108b)
+
+### 🗺️ **Integrating Exported Pie Charts into QGIS**
+
+To replace traditional point markers with the exported pie charts in QGIS, follow these steps:
+
+#### 1. **Load the Updated CSV/Excel File**
+   - Open QGIS and go to **Layer > Add Layer > Add Delimited Text Layer** (for CSV) or **Add Vector Layer** (for Excel).
+   - Load the updated file containing the `PieChartPath` column.
+
+#### 2. **Style the Layer with Raster Markers**
+   - Right-click the layer in the **Layers Panel** and select **Properties**.
+   - Go to the **Symbology** tab.
+   - Change the symbology type to **Raster Image Marker**.
+   - Click the **Data-Driven Override** button (ε) next to the **Image Path** field.
+   - Choose **Field Type** and select the `PieChartPath` column.
+
+#### 3. **Adjust Marker Size**
+   - Set the **Size** of the raster markers to fit your map (e.g., 10 mm).
+   - Optionally, use a **data-defined override** for dynamic sizing based on an attribute (e.g., well size or production).
+
+#### 4. **Visualize and Customize**
+   - The pie charts will now replace the point markers on the map.
+   - Customize the layer further (e.g., labels, transparency) as needed.
+
+#### 5. **Save and Share**
+   - Save your QGIS project to retain the styling.
+   - Share the project or export the map for presentations or reports.
 
 
 ---
