@@ -132,7 +132,7 @@ The input file should be an **Excel file** with the following columns (default c
 - **Charge**: State of the charge.
 - **Trap**: State of the trap.
 - **Play**: Name of the play.
-- **Age**: Age of the well (used for sorting - Mandatory).
+- **Age**: Age of the play (used for sorting - Mandatory).
 - **Color** (optional): Color for each play (used for visualization).
   
 ![Excel](https://github.com/user-attachments/assets/59149a1f-64b0-4f86-8217-9aa4160ee968)
